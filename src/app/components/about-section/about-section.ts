@@ -1,0 +1,56 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-about-section',
+  template: `<section id="about">
+    <div class="wrap">
+      <div class="about-head">
+        <span class="eyebrow">FLUTTER DEVELOPER</span>
+        <h2>About Me</h2>
+      </div>
+    </div>
+    <div class="wrap about-grid">
+      <div class="about-visual">
+        <div class="about-photo-frame">
+          <div class="about-photo no-photo">
+			<img src="./shehab.jpeg" alt="">    
+		<div class="initials">SA</div>
+          </div>
+        </div>
+        <div class="about-photo-caption"><span class="dot"></span>Shehab-Eldien Awaad</div>
+        <div class="about-stats">
+          @for (stat of stats; track stat.label) {
+            <div class="about-stat">
+              <span class="num">{{ stat.value }}</span>
+              <span class="label">{{ stat.label }}</span>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="about-text">
+        <p>
+          Shehab-Eldien is a junior <b>Flutter</b> developer who likes turning an idea into an app
+          people can actually use - smoothly, on both Android and iOS, from a single
+          <b>Dart</b> codebase.
+        </p>
+        <p>
+          Most of the work sits at the connection between screen and server: calling
+          <b>RESTful APIs</b>, shaping the <b>JSON</b> that comes back, and structuring it with
+          clean <b>OOP</b> so the codebase stays easy to extend. <b>Firebase</b> handles the backend
+          pieces that do not need reinventing, and <b>Git</b> keeps every change traceable.
+        </p>
+        <p>
+          Still early in the career, with a habit of reading the framework's source when the docs
+          run out - and a graduation project, Smart Attendance, built to prove the habit works.
+        </p>
+      </div>
+    </div>
+  </section>`,
+})
+export class AboutSectionComponent {
+  protected readonly stats = [
+    { value: '2024', label: 'GRAD YEAR' },
+    { value: '4+', label: 'CERTS' },
+    { value: '1', label: 'SHIPPED APP' },
+  ];
+}
