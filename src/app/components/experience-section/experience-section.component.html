@@ -1,0 +1,18 @@
+<section id="experience" class="section-bg-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">WHERE THE WORK HAPPENED</span>
+      <h2>Experience</h2>
+    </div>
+    <div class="timeline">
+      @for (item of experience; track item.title) {
+        <article class="timeline-item">
+          <div class="timeline-date">{{ item.date }}</div>
+          <h4>{{ item.title }}</h4>
+          <div class="org">{{ item.role }}</div>
+          <p>{{ item.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

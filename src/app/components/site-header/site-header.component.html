@@ -1,0 +1,67 @@
+<header>
+  <nav>
+    <a class="logo" href="#home" aria-label="Shehab home">
+      <span class="tag">&lt;</span>Shehab<span class="tag">&gt;</span>
+    </a>
+    <ul class="nav-links">
+      @for (item of links; track item.id) {
+        <li>
+          <a
+            [href]="'#' + item.id"
+            [class.active]="activeSection() === item.id"
+            (click)="activeSection.set(item.id)"
+            >{{ item.label }}</a
+          >
+        </li>
+      }
+    </ul>
+
+<div class="theme-controls">
+  <!-- dark / light mode toggle -->
+  <button
+    type="button"
+    class="mode-toggle"
+    [attr.aria-label]="themeService.currentMode() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+    (click)="themeService.toggleMode()"
+  >
+    @if (themeService.currentMode() === 'dark') {
+      <!-- sun icon: shown in dark mode, click to go light -->
+      <svg viewBox="0 0 24 24"><path d="M12 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1Zm0 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-1a1 1 0 0 1 1 1 1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1ZM5 11a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2h1Zm12.95-5.95a1 1 0 0 1 0 1.42l-.71.7a1 1 0 1 1-1.41-1.41l.7-.71a1 1 0 0 1 1.42 0ZM8.17 15.88a1 1 0 0 1 0 1.41l-.71.71a1 1 0 0 1-1.41-1.41l.7-.71a1 1 0 0 1 1.42 0ZM6.05 5.05a1 1 0 0 1 1.42 0l.7.71A1 1 0 1 1 6.76 7.2l-.71-.7a1 1 0 0 1 0-1.42Zm9.71 10.83a1 1 0 0 1 1.41 0l.71.7a1 1 0 0 1-1.41 1.42l-.71-.71a1 1 0 0 1 0-1.41ZM12 18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Z"/></svg>
+    } @else {
+      <!-- moon icon: shown in light mode, click to go dark -->
+      <svg viewBox="0 0 24 24"><path d="M20.4 14.7A8.5 8.5 0 0 1 9.3 3.6a.75.75 0 0 0-.9-1 10 10 0 1 0 12.9 12.9.75.75 0 0 0-.9-.8Z"/></svg>
+    }
+  </button>
+
+  <!-- accent color picker -->
+  <div class="theme-switcher">
+    <button
+      type="button"
+      class="theme-trigger"
+      [attr.aria-expanded]="panelOpen"
+      aria-label="Change accent color"
+      (click)="panelOpen = !panelOpen"
+    >
+      <span class="swatch"></span>
+    </button>
+
+    <div class="theme-panel" [class.open]="panelOpen">
+      @for (accent of themeService.accents; track accent.id) {
+        <button
+          type="button"
+          class="theme-option"
+          [class.active]="themeService.currentAccent().id === accent.id"
+          [attr.aria-label]="accent.label"
+          [title]="accent.label"
+          (click)="selectAccent(accent.id)"
+        >
+          <span class="dot" [style.background]="accent.accent"></span>
+        </button>
+      }
+    </div>
+  </div>
+</div>
+    <a href="#contact" class="btn btn-primary nav-cta">Contact Me</a>
+    
+  </nav>
+</header>

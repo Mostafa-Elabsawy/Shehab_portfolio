@@ -2,26 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-skills-section',
-  template: `<section id="skills" class="section-bg-alt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">TOOLS OF THE TRADE</span>
-        <h2>Skills</h2>
-      </div>
-      <div class="skills-grid">
-        @for (group of groups; track group.title) {
-          <article class="skill-card" [class.primary]="group.primary">
-            <h4>{{ group.title }}</h4>
-            <div class="skill-tags">
-              @for (skill of group.skills; track skill.name) {
-                <span [class.lead]="skill.lead">{{ skill.name }}</span>
-              }
-            </div>
-          </article>
-        }
-      </div>
-    </div>
-  </section>`,
+  templateUrl: './skills-section.component.html',
 })
 export class SkillsSectionComponent {
   protected readonly groups = [

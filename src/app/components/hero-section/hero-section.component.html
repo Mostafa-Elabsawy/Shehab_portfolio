@@ -1,0 +1,43 @@
+<section id="home" class="hero grid-bg">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="hero-intro">
+        Portfolio - <span class="name">Shehab-Eldien Mohamed Fawzy Awaad</span>
+      </p>
+      <h1>
+        Hi, I am <span class="accent">Shehab</span><br />Mobile Developer
+        <span class="accent">Flutter</span> &amp; <span class="accent">Dart</span>.
+      </h1>
+      <p class="hero-role"><span class="caret"></span> Junior Flutter Developer</p>
+      <p class="lede">
+        Focused on building responsive, maintainable, and user-friendly cross-platform mobile
+        applications using Flutter and Dart.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-badge fb-1"><span class="sq"></span>Flutter</div>
+      <div class="floating-badge fb-2"><span class="sq"></span>Dart</div>
+      <div class="floating-badge fb-3">build() -&gt; Widget</div>
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-statusbar"><span>9:41</span><span>...</span></div>
+          <div class="phone-appbar">Flutter <span>Developer</span></div>
+          @for (skill of skills; track skill.name) {
+            <div class="phone-card">
+              <div class="row">
+                <small>{{ skill.name }}</small>
+                <small>{{ skill.value }}%</small>
+              </div>
+              <div class="phone-bar"><i [style.width.%]="skill.value"></i></div>
+            </div>
+          }
+          <div class="phone-navbar"><i class="active"></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
